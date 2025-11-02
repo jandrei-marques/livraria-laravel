@@ -66,6 +66,12 @@
                             <p>Livros</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('relatorio.livros') }}" class="nav-link {{ request()->is('relatorio*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>Relatório</p>
+                        </a>
+                    </li>
 
                 </ul>
             </nav>

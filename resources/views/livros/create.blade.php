@@ -92,7 +92,7 @@
                             </span>
                             @enderror
                             <small class="form-text text-muted">
-                                Selecione um ou mais assuntos. Use Ctrl+click para selecionar múltiplos.
+                                Selecione um ou mais assuntos.
                             </small>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                             </span>
                             @enderror
                             <small class="form-text text-muted">
-                                Selecione um ou mais autores. Use Ctrl+click para selecionar múltiplos.
+                                Selecione um ou mais autores.
                             </small>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
 
                 if (!isValid) {
                     e.preventDefault();
-                    alert('Por favor, selecione pelo menos um assunto e um autor.');
+                    alertaErro("Selecione pelo menos um assunto e um autor");
                     return false;
                 }
             });
@@ -183,13 +183,10 @@
                 const currentYear = new Date().getFullYear();
 
                 if (year && (year < 1000 || year > currentYear)) {
-                    alert('Por favor, informe um ano válido.');
+                    alertaErro("Informe um ano válido");
                     $(this).focus();
                 }
             });
-
-            // Foco no primeiro campo
-            $('#titulo').focus();
         });
     </script>
 @endpush

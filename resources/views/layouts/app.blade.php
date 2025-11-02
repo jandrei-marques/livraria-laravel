@@ -211,6 +211,17 @@
             }
         });
     }
+
+    function alertaErro(msg)
+    {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: msg,
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
 </script>
 
 @stack('scripts')

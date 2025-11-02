@@ -76,11 +76,7 @@
                     @empty
                         <tr>
                             <td colspan="5" class="text-center">
-                                @if(request()->anyFilled(['descricao']))
-                                    Nenhum assunto encontrado com os filtros aplicados.
-                                @else
-                                    Nenhum assunto cadastrado.
-                                @endif
+                                Nenhum assunto cadastrado.
                             </td>
                         </tr>
                     @endforelse

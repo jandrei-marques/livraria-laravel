@@ -78,11 +78,7 @@
                     @empty
                         <tr>
                             <td colspan="9" class="text-center">
-                                @if(request()->anyFilled(['titulo', 'autor_id', 'assunto_id']))
-                                    Nenhum livro encontrado com os filtros aplicados.
-                                @else
-                                    Nenhum livro cadastrado.
-                                @endif
+                               Nenhum livro cadastrado.
                             </td>
                         </tr>
                     @endforelse

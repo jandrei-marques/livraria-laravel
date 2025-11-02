@@ -95,9 +95,6 @@
                     $('#descricao-error').remove();
                 }
             });
-
-            // Foco no campo de descrição
-            $('#descricao').focus();
         });
     </script>
 @endpush

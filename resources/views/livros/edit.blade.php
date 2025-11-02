@@ -137,7 +137,13 @@
                 const autores = $('#autores').val();
                 if (!autores || autores.length === 0) {
                     e.preventDefault();
-                    alert('Por favor, selecione pelo menos um autor.');
+                    alertaErro("Selecione pelo menos um autor");
+                    $('#autores').focus();
+                }
+                const assuntos = $('#assuntos').val();
+                if (!assuntos || assuntos.length === 0) {
+                    e.preventDefault();
+                    alertaErro("Selecione pelo menos um assunto");
                     $('#autores').focus();
                 }
             });

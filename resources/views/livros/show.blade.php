@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                     <table class="table table-bordered">
                         <tr>
-                            <th>Código:</th>
+                            <th width="30%">Código:</th>
                             <td>{{ $livro->codl }}</td>
                         </tr>
                         <tr>

@@ -35,9 +35,4 @@ class Livro extends Model
     {
         return $this->belongsToMany(Assunto::class, 'livro_assunto', 'codl', 'codAs');
     }
-
-    public function getAssuntosTextoAttribute()
-    {
-        return $this->assuntos->pluck('descricao')->implode(', ');
-    }
 }

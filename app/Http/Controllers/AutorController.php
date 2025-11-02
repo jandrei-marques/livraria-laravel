@@ -51,9 +51,6 @@ class AutorController extends Controller
 
     public function edit(Autor $autor)
     {
-//        $autor->loadCount('livros')->load(['livros' => function($query) {
-//            $query->orderBy('titulo')->take(5);
-//        }]);
         return view('autores.edit', compact('autor'));
     }
 

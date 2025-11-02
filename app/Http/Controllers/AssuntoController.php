@@ -11,26 +11,8 @@ class AssuntoController extends Controller
     public function index(Request $request)
     {
         $query = Assunto::withCount('livros')->with(['livros' => function($q) {
-            $q->orderBy('Titulo')->take(3);
+            $q->orderBy('titulo')->take(3);
         }]);
-
-        // Filtro por descrição
-        if ($request->has('descricao') && $request->descricao) {
-            $query->where('descricao', 'like', '%' . $request->descricao . '%');
-        }
-
-        // Ordenação
-        switch ($request->ordenacao) {
-            case 'livros':
-                $query->orderBy('livros_count', 'desc');
-                break;
-            case 'recentes':
-                $query->orderBy('created_at', 'desc');
-                break;
-            default:
-                $query->orderBy('descricao');
-                break;
-        }
 
         $assuntos = $query->paginate(10);
 

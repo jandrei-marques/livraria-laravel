@@ -84,17 +84,27 @@
                 </table>
             </div>
         </div>
-        <div class="card-footer">
-            {{ $assuntos->appends(request()->query())->links() }}
-
-            @if($assuntos->count() > 0)
-                <div class="mt-2 text-muted">
-                    <small>
-                        <i class="fas fa-info-circle"></i>
-                        Total de {{ $assuntos->total() }} assunto(s) encontrado(s)
-                    </small>
+        <div class="card-footer clearfix">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    @if($assuntos->count() > 0)
+                        <div class="dataTables_info">
+                            <i class="fas fa-info-circle"></i>
+                            Mostrando {{ $assuntos->firstItem() }} a {{ $assuntos->lastItem() }} de {{ $assuntos->total() }} assunto(s)
+                        </div>
+                    @else
+                        <div class="dataTables_info">
+                            <i class="fas fa-info-circle"></i>
+                            Nenhum assunto encontrado
+                        </div>
+                    @endif
                 </div>
-            @endif
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_paginate paging_simple_numbers float-right">
+                        {{ $assuntos->appends(request()->query())->links('pagination::bootstrap-4') }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

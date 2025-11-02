@@ -86,8 +86,27 @@
                 </table>
             </div>
         </div>
-        <div class="card-footer">
-            {{ $livros->appends(request()->query())->links() }}
+        <div class="card-footer clearfix">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    @if($livros->count() > 0)
+                        <div class="dataTables_info">
+                            <i class="fas fa-info-circle"></i>
+                            Mostrando {{ $livros->firstItem() }} a {{ $livros->lastItem() }} de {{ $livros->total() }} livro(s)
+                        </div>
+                    @else
+                        <div class="dataTables_info">
+                            <i class="fas fa-info-circle"></i>
+                            Nenhum livro encontrado
+                        </div>
+                    @endif
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_paginate paging_simple_numbers float-right">
+                        {{ $livros->appends(request()->query())->links('pagination::bootstrap-4') }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

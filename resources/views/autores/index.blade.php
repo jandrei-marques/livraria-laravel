@@ -58,8 +58,27 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-footer">
-            {{ $autores->links() }}
+        <div class="card-footer clearfix">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    @if($autores->count() > 0)
+                        <div class="dataTables_info">
+                            <i class="fas fa-info-circle"></i>
+                            Mostrando {{ $autores->firstItem() }} a {{ $autores->lastItem() }} de {{ $autores->total() }} autor(es)
+                        </div>
+                    @else
+                        <div class="dataTables_info">
+                            <i class="fas fa-info-circle"></i>
+                            Nenhum autor encontrado
+                        </div>
+                    @endif
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_paginate paging_simple_numbers float-right">
+                        {{ $autores->appends(request()->query())->links('pagination::bootstrap-4') }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
